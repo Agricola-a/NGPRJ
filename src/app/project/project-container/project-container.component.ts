@@ -10,7 +10,7 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectContainerComponent implements OnInit, OnDestroy {
 
-  subscription!: Subscription;
+  subscription!: Subscription; //to use unsubscribe
   selectedProject!: Project;
 
   projects: Project[] = [];
@@ -23,7 +23,7 @@ export class ProjectContainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe(); //using unsubscribe
   }
 
   selectProject(project: Project) {
