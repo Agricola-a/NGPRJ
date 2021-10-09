@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Project } from '@app/models/Project';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -8,22 +8,15 @@ import { ProjectService } from '../project.service';
   templateUrl: './project-container.component.html',
   styleUrls: ['./project-container.component.css'],
 })
-export class ProjectContainerComponent implements OnInit, OnDestroy {
+export class ProjectContainerComponent implements OnInit {
 
-  subscription!: Subscription; //to use unsubscribe
+  projects$!: Observable<Project[]>;
   selectedProject!: Project;
-
-  projects: Project[] = [];
 
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
-    this.subscription = this.projectService.getAll()
-    .subscribe(data => this.projects = data);
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe(); //using unsubscribe
+    this.projects$ = this.projectService.getAll();
   }
 
   selectProject(project: Project) {

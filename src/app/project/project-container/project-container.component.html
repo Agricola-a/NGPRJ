@@ -2,7 +2,9 @@
  [header]="{title: 'My Projects', label: 'Vai a Home', link: '/home', type: 'btn-link'}"
  ></ngprj-section-header>
 
-<ngprj-project-list [projects]="projects" (selected)="selectProject($event)"></ngprj-project-list>
+ <ng-container *ngIf="projects$ | async as projects">
+     <ngprj-project-list [projects]="projects" (selected)="selectProject($event)"></ngprj-project-list>
+ </ng-container>
 
 <hr>
 
