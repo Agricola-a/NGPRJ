@@ -5,7 +5,8 @@ import { ProjectContainerComponent } from "./project/project-container/project-c
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
-    { path: 'projects', component: ProjectContainerComponent }
+    { path: 'projects', component: ProjectContainerComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
