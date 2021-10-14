@@ -1,9 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '@app/models/Project';
 import { LogService } from '@app/shared/log.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +42,15 @@ export class ProjectService {
     return this.httpClient.get<Project>(`http://localhost:3000/projects/${id}`)
     .pipe(
       tap((data) => this.logService.log(`get used ${data}`)),
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  erase(id: number): Observable<Project> {
+    return this.httpClient.delete<Project>(`http://localhost:3000/projects/${id}`)
+    .pipe(
+      tap((data) => this.logService.log(`erase used ${data}`)),
       retry(3),
       catchError(this.handleError)
       );

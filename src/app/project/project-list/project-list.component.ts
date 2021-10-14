@@ -10,6 +10,7 @@ export class ProjectListComponent implements OnInit {
 
   @Input() projects: Project[] = []
   @Output() selected = new EventEmitter<Project>();
+  @Output() erased = new EventEmitter<Project>();
 
   constructor() { }
 
@@ -18,5 +19,8 @@ export class ProjectListComponent implements OnInit {
 
   select(project: Project){
     this.selected.emit(project);
+  }
+  erase(project: Project){
+    this.erased.emit(project);
   }
 }

@@ -7,7 +7,11 @@
                     {{ project.name }}
                 </h5>
                 <p class="card-text">{{ project.description }}</p>
-                <button class="btn btn-primary btn-sm" (click)="select(project)">Vai al Progetto</button>
+                <div class="d-flex justify-content-between">
+
+                    <button class="btn btn-primary btn-sm" (click)="select(project)">Vai al Progetto</button>
+                    <button class="delete btn btn-danger" (click)="erase(project)">Delete</button>
+                </div>
             </div>
             <div class="card-footer">
                 <small class="text-muted" [ngStyle]="{'font-style' : project.done ? 'italic' : 'normal'}" >
