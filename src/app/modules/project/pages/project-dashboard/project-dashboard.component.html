@@ -1,0 +1,23 @@
+<ngprj-section-header
+  [header]="{
+    title: 'My Projects',
+    label: 'Home',
+    link: '/home',
+    type: 'btn-link'
+  }"
+>
+</ngprj-section-header>
+
+<ng-container *ngIf="projects$ | async as projects">
+  <ngprj-project-list
+    [projects]="projects"
+    (selected)="selectProject($event)"
+    (erased)="eraseProject($event)"
+  ></ngprj-project-list>
+</ng-container>
+
+<hr />
+
+<ngprj-project-form
+  (submitted)="submitProjectForm($event)"
+></ngprj-project-form>

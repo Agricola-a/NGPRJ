@@ -8,7 +8,7 @@ import { Project } from '@app/models/Project';
 })
 export class ProjectListComponent implements OnInit {
 
-  @Input() projects: Project[] = []
+  @Input() projects: Project[] = [];
   @Output() selected = new EventEmitter<Project>();
   @Output() erased = new EventEmitter<Project>();
 

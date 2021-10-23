@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-interface Button {
+interface Header {
   title: string;
   label: string;
   link: string;
@@ -14,13 +14,13 @@ interface Button {
 })
 export class SectionHeaderComponent implements OnInit {
 
-  private _myHeader: Button = {title: '', label: '', link: '', type: 'btn-link'}
+  private _myHeader: Header = {title: '', label: '', link: '', type: 'btn-link'}
 
-  @Input() set header(value: Partial<Button>) {
+  @Input() set header(value: Partial<Header>) {
     this._myHeader = { ...this._myHeader, ...value }
   }
 
-  get myHeader(): Partial<Button> {
+  get myHeader(): Partial<Header> {
     return this._myHeader;
   }
 

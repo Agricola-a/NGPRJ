@@ -1,0 +1,31 @@
+<hr>
+<form class="form-group" [formGroup]="projectForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="end" class="form-label">End</label>
+        <input id="end" name="end" type="date" class="form-control" placeholder="End date" formControlName="end"
+            required>
+        <p *ngIf="endDate?.invalid" class="text-danger">*Requested field</p>
+    </div>
+    <div class="form-group">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" name="description" class="form-control" placeholder="Description"
+            formControlName="description" required></textarea>
+        <p *ngIf="description?.invalid" class="text-danger">*Requested field</p>
+    </div>
+
+    <div formArrayName="tasks">
+        <div class="col text-right">
+            <button type="button" class="btn btn-link btn-sm" (click)="addTask()" [disabled]="projectForm.invalid">Add task</button>
+        </div>
+
+        <div *ngFor="let task of tasks.controls; let i=index">
+            <div class="input-group mb-3" [formGroupName]="i">
+                <input type="text" class="form-control" placeholder="Task name" formControlName="name">
+                <button type="button" class="btn btn-danger btn-sm" (click)="erase(i)">X</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" [disabled]="projectForm.invalid" class="w-100 btn btn-primary btn-lg">Update Project</button>
+    </div>
+</form>
