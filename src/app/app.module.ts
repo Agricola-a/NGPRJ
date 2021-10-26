@@ -1,34 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ProjectContainerComponent } from './project/project-container/project-container.component';
-import { ProjectDetailComponent } from './project/project-detail/project-detail.component';
-import { ProjectListComponent } from './project/project-list/project-list.component';
-import { ProjectFormComponent } from './project/project-form/project-form.component';
-import { HomeComponent } from './dashboard/home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SectionHeaderComponent } from './shared/section-header/section-header.component';
+import {DashboardModule} from "@app/modules/dashboard/dashboard.module";
+import {PageNotFoundComponent} from "@app/page-not-found/page-not-found.component";
+import {AuthInterceptor} from "@app/core/auth.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectContainerComponent,
-    ProjectDetailComponent,
-    ProjectListComponent,
-    ProjectFormComponent,
-    HomeComponent,
     NavbarComponent,
-    SectionHeaderComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    HttpClientModule,
+    DashboardModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

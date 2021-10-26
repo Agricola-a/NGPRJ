@@ -1,0 +1,65 @@
+{
+  "projects": [
+    {
+      "name": "Prj Alpha",
+      "priority": "medium",
+      "start": "2021-10-13",
+      "end": "2022-12-12",
+      "description": "Alpha Project",
+      "code": "umycsxh",
+      "done": true,
+      "tasks": [],
+      "id": 1
+    },
+    {
+      "name": "Prj Beta",
+      "priority": "low",
+      "start": "2024-11-13",
+      "description": "Beta Project",
+      "code": "kqmik4w",
+      "done": false,
+      "tasks": [],
+      "id": 2
+    },
+    {
+      "name": "Prj Gamma",
+      "priority": "medium",
+      "start": "2021-09-27",
+      "description": "Third Project",
+      "code": "2ut7qdh",
+      "done": true,
+      "tasks": [],
+      "id": 3
+    },
+    {
+      "name": "Prj X",
+      "priority": "high",
+      "start": "2022-09-11",
+      "description": "X Project modificato",
+      "code": "xq0s9a9",
+      "done": false,
+      "tasks": [
+        {
+          "name": "Taskino"
+        }
+      ],
+      "id": 4,
+      "end": "2021-10-17"
+    },
+    {
+      "id": 5,
+      "code": "p4Dm412Ad",
+      "name": "Prj Y",
+      "description": "Y Project dada asd asd ",
+      "start": "2026-01-01",
+      "done": true,
+      "priority": "medium",
+      "tasks": [
+        {
+          "name": "asd"
+        }
+      ],
+      "end": "2021-10-17"
+    }
+  ]
+}
