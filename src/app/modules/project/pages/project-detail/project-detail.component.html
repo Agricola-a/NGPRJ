@@ -1,20 +1,20 @@
 <ngprj-section-header
- [header]="{title: 'Project Details', label: 'Back to Projects', link: '/projects', type: 'btn-link'}"
- ></ngprj-section-header>
+  [header]="{title: 'Project Details', label: 'Back to Projects', link: '/projects', type: 'btn-link'}">
+</ngprj-section-header>
 
 <ng-container *ngIf="project$ | async as project">
-    <div class="container-fluid py-5">
-      <ngprj-card>
-        <ng-container data-body>
-          <h1 class="display-5 fw-bold">{{project.name}}</h1>
-          <h4 class="col-md-8 fs-5">{{project.description}}</h4>
-        </ng-container>
-        <ng-container data-footer>
-          <p>Code: {{ project.code }} - Start date: {{ project.start | date }} - End Date: {{ project.end | date }}</p>
-        </ng-container>
-      </ngprj-card>
-    </div>
+  <div class="container-fluid py-5">
+    <ngprj-card>
+      <ng-container data-body>
+        <h1 class="display-5 fw-bold">{{project.name}}</h1>
+        <h4 class="col-md-8 fs-5">{{project.description}}</h4>
+      </ng-container>
+      <ng-container data-footer>
+        <p>Code: {{ project.code }} - Start date: {{ project.start | date }} - End Date: {{ project.end | date }}</p>
+      </ng-container>
+    </ngprj-card>
+  </div>
 
-    <ngprj-project-form-rf [project]="project" (submitted)="updateProjectFromForm($event)"></ngprj-project-form-rf>
-    
-  </ng-container>
+  <ngprj-project-form-rf [project]="project" (submitted)="updateProjectFromForm($event)"></ngprj-project-form-rf>
+
+</ng-container>

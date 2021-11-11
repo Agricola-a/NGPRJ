@@ -50,13 +50,16 @@
       "id": 5,
       "code": "p4Dm412Ad",
       "name": "Prj Y",
-      "description": "Y Project dada asd asd ",
+      "description": "asdasd",
       "start": "2026-01-01",
       "done": true,
       "priority": "medium",
       "tasks": [
         {
-          "name": "asd"
+          "name": "task1"
+        },
+        {
+          "name": "task2"
         }
       ],
       "end": "2021-10-17"
