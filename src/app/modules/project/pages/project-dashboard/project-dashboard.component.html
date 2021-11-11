@@ -1,23 +1,20 @@
-<ngprj-section-header
-  [header]="{
+<ngprj-section-header [header]="{
     title: 'My Projects',
     label: 'Home',
     link: '/home',
     type: 'btn-link'
-  }"
->
+  }">
 </ngprj-section-header>
 
-<ng-container *ngIf="projects$ | async as projects">
-  <ngprj-project-list
-    [projects]="projects"
-    (selected)="selectProject($event)"
-    (erased)="eraseProject($event)"
-  ></ngprj-project-list>
+<ng-container *ngIf="projects$ | async as projects; else noProjects">
+  <ngprj-project-list [projects]="projects" (selected)="selectProject($event)" (erased)="eraseProject($event)">
+  </ngprj-project-list>
 </ng-container>
+
+<ng-template #noProjects>
+  <p>Non ci sono progetti</p>
+</ng-template>
 
 <hr />
 
-<ngprj-project-form
-  (submitted)="submitProjectForm($event)"
-></ngprj-project-form>
+<ngprj-project-form (submitted)="submitProjectForm($event)"></ngprj-project-form>
